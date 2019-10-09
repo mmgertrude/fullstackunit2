@@ -26,8 +26,6 @@ console.log(printToTen());
 // 	console.log(num1 + num2);
 // }
 
-const addUs = (num1, num2) => {
-	console.log(num1 + num2);
-}
+const addUs = (num1, num2) => console.log(num1 + num2);
 
 console.log(addUs(4,4));

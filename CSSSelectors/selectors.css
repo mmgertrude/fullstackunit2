@@ -1,0 +1,213 @@
+
+
+/* there are various */
+/*UNIVERSAL selectors: select any (or all) type of elements in an HTML page. written with an asterix "*": 
+example:
+* {
+color: blue; /* color of all the elements should be blue 
+background: silver; /* silver background is set for all the elements 
+ 
+
+/* TYPE or ELEMENT Selectors: Select an html element on a page based on the tag type eg p, div, body, h1, header*/
+/*******************************/
+/*target every paragrapgh*/
+
+body {
+    color: #8787;
+    margin: 0;
+}
+header {
+    background-color: orange;
+}
+
+h1 {
+    font-size: 90px;
+    color: white;
+}
+
+
+h2 {
+    font-size: 53px;
+}
+
+h3 {
+    font-size: 20px;
+    color: #48525c;
+}
+
+/* 
+==>Remove text decoration on all navigation links
+nav a {text-decoration: nonre;}
+
+==> change the background color of the submit button when active:
+input[type = "submit"]:active {background-color: firebrick;}
+
+==>give the text field a blue border upon focus:
+input[type = "text"]:focus {border 1px solid #4683af;} // #4683af matches the body color
+
+==> target all headings:
+h1, h2, h3 {font-family: "Breef Serif", serif;}
+
+
+
+/******************************************************************
+
+ID Selectors: by assigning a unique Id to an HTML element we can select the element using the ID
+Rules:  an element can only have one ID
+        a page can only have one element with the same id 
+Ids can be used to ancher to areas on a page eg the a tag of the footer has a href = "#top" that takes you to the 
+header. This is possible because the header has an id = "top"
+/******************************************************************/
+
+#primary-content {
+text-align: center}
+
+#main-footer {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    border-bottom: solid 10px orange;
+}
+/******************************************************************
+
+CLASS Selectors: Allow element selection by assigning class atributes to them.
+*classes are more flexible than id selecters. this is because we can use a class to target more than one element on a page
+*an element can have multiple classes assigned to it like this: <div class="className1 className2"
+*an element can have both an id and a class. However the id since its unique carries more weight. so the styles defined in 
+the id selecter carry more weight than those in the class
+
+/******************************************************************/
+.secondary-content{
+    border: 3px red solid;
+}
+
+/******************************************************************
+selecting descendant elements:
+
+
+Example usage, for the HTML section:
+<header id="top" class="main-header">
+    <span>Journey through the Sierra Nevada Mountains</span>
+    <h1>Lake Tahoe, California</h1>
+</header>
+
+span is a descendant of header. CSS style to target span can be written as:
+header  span{
+    color: white
+    font-size: 26px}
+*/
+OR 
+.main-header span{
+color: white;
+font-size:26px;}
+
+/* Another example targeting li descendant of the ul: */
+ul li {
+    background-color: tomato;
+    font-size: 26px;
+    margin-bottom: 5px;
+}
+
+/*limitations: using too many descendant selectors makes the CSS less reusable eg adding another span
+span descendant under header will give it the same CSS style which we may not want.
+It is therefore better to give the descendant we want to style a class atribute to which we 
+can give CSS style eg:
+<header id="top" class="main-header">
+    <span class="title">Journey through the Sierra Nevada Mountains</span>
+    <h1>Lake Tahoe, California</h1>
+</header>
+
+then the style for the span in the css will be 
+.title {color: white
+font-size: 26px} */
+
+/******************************************************************
+pseudo-classes
+********************
+difference they are not explicitly defined in the class attribute.
+key-word added to selectors to style a special state of the element.
+can target elements dynamically based on; user interaction (eg hover), and element
+state etc
+
+examples:
+1. link history:
+********************
+link class allows styling links that have not been visited specified as a:link 
+example: target unvisited links, give them a color orange 
+(note this ONLY targets ancher elements with an href attribute)  */
+
+a:link {
+    color: orange;
+}
+
+/* for visited links: */
+a:visited {color: lightblue;}
+
+/*2. user action pseudo-classes: styles applied based on user action eg 
+2.2) hover: can be applied to any any element
+*********************/
+a:hover {color : forestgreen;}
+p:hover {color : forestgreen;}
+
+/* 2.3) Active pseudo-class: applied when an element is activated by the user eg, a mouse click to click 
+a link or button. Can be applied to any element*/
+
+a:active {color: lightcoral}
+
+/* 2.4) Focus pseudo-class: Only applied to interactive elements like links, forms and buttons.
+when an element is activated by the user eg, a mouse click to click 
+a link or button. Can be applied to any element*/
+
+a:focus {color: white;
+background-color: orange;} /*style shown when one tabs through with a keyboard*/
+
+/*to target all interractive elements on the page eg links, forms and buttons, remove the a tag
+:focus {color: white;
+    background-color: orange;} 
+
+
+
+
+Note: 
+Custom Data Attributes: Attribute selectors target HTML elements based
+on an attribute and value. For example, the following targets 
+all <label> elements with a title attribute:
+label[title] {
+  color: indigo;
+}
+HTML provides custom data- attributes that allow you to store extra 
+information on any element. Data attributes are regular HTML attributes
+that begin with the data- prefix followed by a custom name. 
+For example, the following data attributes store information about a teacher:
+
+<ul>
+  <li data-topic="javascript" data-id="1">Guil</li>
+  <li data-topic="python" data-id="2">Ashley</li>
+  <li data-topic="ios" data-id="3">Pasan</li>
+<ul>
+
+You can target custom data-* attributes with CSS, also by wrapping them in square brackets:
+
+[data-topic="javascript"] {
+  background-color: #3659a2;
+}
+[data-topic="python"] {
+  background-color: #008297;
+}
+[data-topic="ios"] {
+  background-color: #30826C;
+}
+You can also use attribute selectors in your CSS to set styles based on the data.
+
+html:
+
+<div data-columns="8">...</div>
+<div data-columns="6">...</div>
+css:
+
+[data-columns="8"] {
+  width: 60%;
+}
+[data-columns="6"] {
+  width: 40%;
+}
+
