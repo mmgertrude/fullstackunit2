@@ -47,3 +47,25 @@ console.log(calculate_gpa2(reggie_grades));
 let dave_grades2 =[ 1, 2, 3, 2]
 console.log(calculate_gpa2(dave_grades2));
 
+//task: Remove duplicates of an array and return an array of only unique elements
+let names = ["Mike","Matt","Nancy","Adam","Jenny","Nancy","Carl"];
+let uniquenames = [];
+for (let i = 0; i < names.length; i++){
+  if (!(uniquenames.includes (names[i]))){
+    uniquenames.push(names[i]);  }
+}
+//console.log(uniquenames);
+
+
+//TASK: Given a string, reverse each word in the sentence 
+let mystring = "Will this work?, tell me all about it"
+let splitIt = mystring.split("");
+let reverseIt = splitIt.reverse();
+let joinIt = reverseIt.join("");
+console.log(joinIt);
+
+// a function for the above:
+function reverseString(str) {
+  return str.split("").reverse().join("");
+}
+console.log(reverseString(mystring));
